@@ -119,12 +119,53 @@ class _MainScreenState extends State<MainScreen> {
         inactiveColorPrimary: ColorPalette.black,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(
-          Icons.shopping_cart,
-          size: 20,
-          color: _controller.index == 3
-              ? HexColor('#000000')
-              : HexColor('#7B7B7B'),
+        icon: Stack(
+          children: [
+            Icon(
+              Icons.shopping_cart,
+              size: 20,
+              color: _controller.index == 3
+                  ? HexColor('#000000')
+                  : HexColor('#7B7B7B'),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 14,
+              ),
+              child:Container(
+                  height: 10,
+                  width: 10,
+                  //padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: HexColor('#C40000'),
+                  ),
+                  alignment: Alignment.center,
+                  child:
+                  // Consumer<AppDataProvider>(builder: (context, model, _) {
+                  //   String count = model.cartCount == null
+                  //       ? '0'
+                  //       : '${model.cartCount}';
+                  //   // String count = model.cartModel?.totalQty == null
+                  //   //     ? '0'
+                  //   //     : '${model.cartModel?.totalQty}';
+                  //   return
+                  FittedBox(
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.80),
+                      child: Text(
+                        "",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ))
+            )
+
+          ],
         ),
         title: 'Cart',
         routeAndNavigatorSettings: RouteAndNavigatorSettings(

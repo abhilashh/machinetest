@@ -76,9 +76,12 @@ class ProductTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if(product!.offer! > 0)
             _buildTopWidgets(context),
             _buildImageWidget(),
+            if(product!.isExpress == true)
             _buildBuyWidget(),
+            if(product!.offerPrice != product!.actualPrice)
             _buildPriceOfferWidget(),
             _buildPriceWidget(),
             _buildTitleWidget(),
