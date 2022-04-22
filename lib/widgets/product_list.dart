@@ -76,7 +76,6 @@ class ProductTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if(product!.offer! > 0)
             _buildTopWidgets(context),
             _buildImageWidget(),
             if(product!.isExpress == true)
@@ -101,6 +100,7 @@ class ProductTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          if(product!.offer! > 0)
           Container(
               margin: EdgeInsets.only(top: 10),
               height: 15,
