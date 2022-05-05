@@ -97,35 +97,41 @@ class ProductTile extends StatelessWidget {
   _buildTopWidgets(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 11),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if(product!.offer! > 0)
-          Container(
-              margin: EdgeInsets.only(top: 10),
-              height: 15,
-              width: 51,
-              color: Colors.red,
-              child: Center(
-                child: Text('${(product!.offer).toString()}% off',style:FontStyle.whiteBold ,),
-              )),
-          InkWell(
+          Align(
+            alignment: Alignment.centerLeft,
             child: Container(
-              margin: EdgeInsets.only(top: 10),
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: Image.asset(
-                  'assets/image/fav.png',
-                  key: UniqueKey(),
-                  height: 19,
-                  width: 19,
-                )
-              ),
-            ),
-            onTap: () {
-
-            },
+                margin: EdgeInsets.only(top: 10),
+                height: 15,
+                width: 51,
+                color: Colors.red,
+                child: Center(
+                  child: Text('${(product!.offer).toString()}% off',style:FontStyle.whiteBold,),
+                )),
           ),
+         Align(
+           alignment: Alignment.centerRight,
+           child:  InkWell(
+             child: Container(
+               margin: EdgeInsets.only(top: 10),
+               child: AnimatedSwitcher(
+                   duration: const Duration(milliseconds: 300),
+                   child: Image.asset(
+                     'assets/image/fav.png',
+                     key: UniqueKey(),
+                     height: 19,
+                     width: 19,
+                   )
+               ),
+             ),
+             onTap: () {
+
+             },
+           ),
+         )
         ],
       ),
     );
@@ -184,7 +190,6 @@ class ProductTile extends StatelessWidget {
           style: FontStyle.grey14SemiBold),
     );
   }
-
   _buildPriceOfferWidget() {
     return Container(
         margin: EdgeInsets.only(right: 11, left: 12,top: 2),
@@ -197,7 +202,6 @@ class ProductTile extends StatelessWidget {
           ],
         ));
   }
-
   _buildAddTo(){
     return Container(
       margin: EdgeInsets.only(top: 8, right: 12, left: 12,bottom: 8),
@@ -206,7 +210,6 @@ class ProductTile extends StatelessWidget {
     );
 
   }
-
 }
 
 

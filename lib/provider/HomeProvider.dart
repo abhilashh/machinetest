@@ -30,8 +30,4 @@ class HomeProvider extends ChangeNotifier{
     pageLoadState = val;
     notifyListeners();
   }
-
-
-
-
 }

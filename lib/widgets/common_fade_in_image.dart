@@ -16,7 +16,6 @@ class CustomFadeImage extends StatelessWidget {
       this.width,
       this.boxFit = BoxFit.cover})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return FadeInImage.memoryNetwork(
